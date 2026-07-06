@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AceZen - 电子名片</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh;padding:20px;color:#333}
+.card{max-width:420px;margin:0 auto;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.2)}
+.header{background:linear-gradient(135deg,#667eea,#764ba2);padding:40px 20px 30px;text-align:center}
+.avatar{width:120px;height:120px;border-radius:50%;border:4px solid #fff;background:#fff;margin:0 auto 15px;overflow:hidden;box-shadow:0 4px 15px rgba(0,0,0,.2)}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.name{font-size:28px;font-weight:bold;color:#fff;margin-bottom:8px}
+.title{font-size:16px;color:rgba(255,255,255,.9);margin-bottom:5px}
+.company{font-size:14px;color:rgba(255,255,255,.8)}
+.content{padding:25px 20px}
+.section{margin-bottom:25px}
+.section-title{font-size:16px;font-weight:bold;color:#667eea;margin-bottom:15px;padding-left:10px;border-left:3px solid #667eea}
+.contact-item{display:flex;align-items:center;padding:12px 15px;background:#f8f9fa;border-radius:12px;margin-bottom:10px;text-decoration:none;color:inherit;transition:background .3s}
+.contact-item:active{background:#e9ecef}
+.contact-icon{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-right:15px;font-size:20px;flex-shrink:0}
+.icon-phone{background:#d4edda}
+.icon-wechat{background:#d1e7dd}
+.icon-email{background:#cce5ff}
+.contact-info{flex:1}
+.contact-label{font-size:12px;color:#999;margin-bottom:2px}
+.contact-value{font-size:15px;color:#333;font-weight:500}
+.portfolio-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.portfolio-item{aspect-ratio:1;background:linear-gradient(135deg,#f5f7fa,#c3cfe2);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#999;font-size:14px;overflow:hidden}
+.portfolio-item img{width:100%;height:100%;object-fit:cover}
+.spacer{height:80px}
+.footer{text-align:center;padding:20px;color:#999;font-size:12px}
+.actions{position:fixed;bottom:0;left:0;right:0;background:#fff;padding:15px 20px;box-shadow:0 -2px 10px rgba(0,0,0,.1);display:flex;gap:10px;max-width:420px;margin:0 auto}
+.btn{flex:1;padding:14px;border:none;border-radius:25px;font-size:16px;font-weight:bold;cursor:pointer;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:8px}
+.btn-primary{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.btn-secondary{background:#f8f9fa;color:#667eea;border:2px solid #667eea}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.card{animation:fadeIn .6s ease-out}
+.toast{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,.75);color:#fff;padding:12px 24px;border-radius:8px;font-size:14px;z-index:999;display:none}
+</style>
+</head>
+<body>
+<div class="card">
+<div class="header">
+<div class="avatar">
+<img src="assets/images/avatar.png" alt="头像">
+</div>
+<div class="name">AceZen</div>
+<div class="title">GIS工程师</div>
+<div class="company">地理信息系统 · 空间数据分析</div>
+</div>
+<div class="content">
+<div class="section">
+<div class="section-title">联系方式</div>
+<a href="tel:15010698888" class="contact-item">
+<div class="contact-icon icon-phone">📱</div>
+<div class="contact-info">
+<div class="contact-label">电话</div>
+<div class="contact-value">15010698888</div>
+</div>
+</a>
+<div class="contact-item" onclick="copyWechat()">
+<div class="contact-icon icon-wechat">💬</div>
+<div class="contact-info">
+<div class="contact-label">微信</div>
+<div class="contact-value">ysjvsxj</div>
+</div>
+</div>
+<a href="mailto:37682781@qq.com" class="contact-item">
+<div class="contact-icon icon-email">📧</div>
+<div class="contact-info">
+<div class="contact-label">邮箱</div>
+<div class="contact-value">37682781@qq.com</div>
+</div>
+</a>
+</div>
+<div class="section">
+<div class="section-title">作品集</div>
+<div class="portfolio-grid">
+<div class="portfolio-item"><img src="assets/images/portfolio/01_digital_twin.jpg" alt="数字孪生"></div>
+<div class="portfolio-item"><img src="assets/images/portfolio/02_data_viz.jpg" alt="GIS分析"></div>
+<div class="portfolio-item"><img src="assets/images/portfolio/03_3d_city.jpg" alt="智慧城市"></div>
+<div class="portfolio-item"><img src="assets/images/portfolio/04_map.jpg" alt="数据可视化"></div>
+</div>
+</div>
+<div class="spacer"></div>
+</div>
+<div class="footer">扫码添加微信 · 获取更多作品</div>
+</div>
+<div class="actions">
+<a href="weixin://dl/chat?uid=ysjvsxj" class="btn btn-primary"><span>💬</span><span>加微信</span></a>
+<a href="tel:15010698888" class="btn btn-secondary"><span>📞</span><span>打电话</span></a>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+function showToast(msg){
+var t=document.getElementById("toast");
+t.textContent=msg;
+t.style.display="block";
+setTimeout(function(){t.style.display="none"},1500);
+}
+function copyWechat(){
+var text="ysjvsxj";
+if(navigator.clipboard){
+navigator.clipboard.writeText(text).then(function(){showToast("微信号已复制："+text)});
+}else{
+var ta=document.createElement("textarea");
+ta.value=text;
+document.body.appendChild(ta);
+ta.select();
+document.execCommand("copy");
+document.body.removeChild(ta);
+showToast("微信号已复制："+text);
+}
+}
+</script>
+</body>
+</html>
